@@ -4,9 +4,7 @@ try
 		set win_folder to POSIX file win_path as alias
 		set folder_items to {}
 		repeat with folder_item in (every item of win_folder whose name starts with "pt" or name starts with "orchestrator")
-			if class of folder_item is folder then
-				set end of folder_items to name of folder_item
-			end if
+			if class of folder_item is folder then set end of folder_items to name of folder_item
 		end repeat
 	end tell
 	if length of folder_items is greater than 0 then
