@@ -23,7 +23,16 @@ try
 					delay 0.2
 					do script command in front window
 					delay 0.5
-					if length of folder_items is greater than app_count then tell application "System Events" to keystroke "t" using {command down}
+					if length of folder_items is greater than app_count then
+						try
+							tell application "System Events"
+								keystroke "t" using command down
+							end tell
+						on error
+							do script ""
+							activate
+						end try
+					end if
 				end tell
 			end repeat
 		end if
