@@ -24,14 +24,16 @@ try
 					do script command in front window
 					delay 0.5
 					if length of folder_items is greater than app_count then
-						try
-							tell application "System Events"
+						tell application "System Events"
+							try
 								keystroke "t" using command down
-							end tell
-						on error
-							do script ""
-							activate
-						end try
+							on error
+								tell application "Terminal"
+									do script ""
+									activate
+								end tell
+							end try
+						end tell
 					end if
 				end tell
 			end repeat
